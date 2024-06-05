@@ -12,7 +12,6 @@ public class Day6 {
     public List<String> commonChars(String[] words) {
         List<String> result = new ArrayList<>();
         if (words.length == 0) return result;
-
         int[] minFreq = new int[26];
         for (int i = 0; i < 26; i++) {
             minFreq[i] = Integer.MAX_VALUE;
