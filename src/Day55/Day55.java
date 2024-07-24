@@ -1,0 +1,39 @@
+package Day55;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Day55 {
+    public static void main(String[] args) {
+        Day55 day55 = new Day55();
+        int[] mapping = {2, 5, 6, 7, 3, 4, 1, 0, 8, 9};
+        int[] nums = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+        int[] sortedNums = day55.sortJumbled(mapping, nums);
+        for (int num : sortedNums) {
+            System.out.print(num + " ");
+        }
+    }
+    public int[] sortJumbled(int[] mapping, int[] nums) {
+        List<int[]> mappedList = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            String s = Integer.toString(nums[i]);
+            StringBuilder n = new StringBuilder();
+            for (char ch : s.toCharArray()) {
+                n.append(mapping[ch - '0']);
+            }
+            mappedList.add(new int[]{nums[i], Integer.parseInt(n.toString()), i});
+        }
+        mappedList.sort((a, b) -> {
+            if (a[1] != b[1]) {
+                return Integer.compare(a[1], b[1]);
+            } else {
+                return Integer.compare(a[2], b[2]);
+            }
+        });
+        int[] sortedNums = new int[nums.length];
+        for (int i = 0; i < mappedList.size(); i++) {
+            sortedNums[i] = mappedList.get(i)[0];
+        }
+        return sortedNums;
+    }
+}
