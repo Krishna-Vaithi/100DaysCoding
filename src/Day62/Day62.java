@@ -6,6 +6,7 @@ public class Day62 {
         int[][] books = {{1,1},{2,3},{2,3},{1,1},{1,1},{1,1},{1,2}};
         int shelfWidth = 4;
         System.out.println(day62.minHeightShelves(books, shelfWidth));
+                
     }
     public int minHeightShelves(int[][] books, int shelfWidth) {
         int n = books.length;
