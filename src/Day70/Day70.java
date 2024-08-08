@@ -5,8 +5,11 @@ public class Day70 {
         Day70 day70 = new Day70();
         int rows = 5, cols = 6, rStart = 1, cStart = 4;
         int[][] result = day70.spiralMatrixIII(rows, cols, rStart, cStart);
-        for (int[] res : result) {
-            System.out.print("[" + res[0] + ", " + res[1] + "] ");
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
         }
     }
     public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
